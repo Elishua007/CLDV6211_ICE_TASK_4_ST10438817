@@ -1,0 +1,26 @@
+﻿
+@{
+
+
+	ViewData["Title"] = "Upload Image";
+
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-controller="Index" asp-action="Upload" method="post" enctype="multipart/form-data">
+	<div class="form-group">
+		<label for="file">Select an image to upload:</label>
+		<input type="file" name="file" id="file" class="form-control" />
+	</div>
+	<button type="submit" class="btn btn-primary">Upload</button>
+</form>
+@if (ViewBag.Message != null)
+{
+	<p>@ViewBag.Msg</p>
+}
+@if (ViewBag.Url != null)
+{
+	<img src="@ViewBag.Url" style="max-width: 300px; max-height: 300px;" />
+	<p>Image URL: <a href="@ViewBag.Url">@ViewBag.Url</a></p>
+}
